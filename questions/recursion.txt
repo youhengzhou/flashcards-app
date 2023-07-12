@@ -1,0 +1,151 @@
+const flashcards = [
+  {
+    code: `
+    function printN(n) {
+      if(n > 0){
+        console.log(n);
+        printN(n-1);
+      }
+    }
+    
+    printN(5);
+    `,
+    answer: `5,4,3,2,1`,
+  },
+  {
+    code: `
+    function countElements(arr) {
+      if(arr.length === 0) {
+        return 0;
+      } else {
+        return 1 + countElements(arr.slice(1));
+      }
+    }
+    
+    console.log(countElements([1, 2, 3, 4, 5]));
+    `,
+    answer: `5`,
+  },
+  {
+    code: `
+    function sumArray(arr) {
+      if(arr.length === 0) {
+        return 0;
+      } else {
+        return arr[0] + sumArray(arr.slice(1));
+      }
+    }
+    
+    console.log(sumArray([1, 2, 3, 4, 5]));
+    `,
+    answer: `15`,
+  },
+  {
+    code: `
+    function fib(n) {
+      if (n <= 2) { 
+        return 1;
+      } else { 
+        return fib(n - 1) + fib(n - 2); 
+      }
+    }
+    
+    console.log(fib(6));
+    `,
+    answer: `8`,
+  },
+  {
+    code: `
+    function findMax(arr){
+      if (arr.length === 2) {
+        return arr[0] > arr[1] ? arr[0] : arr[1];
+      }
+      let subMax = findMax(arr.slice(1));
+      return arr[0] > subMax ? arr[0] : subMax;
+    }
+    
+    console.log(findMax([1, 2, 10, 4, 5]));
+    `,
+    answer: `10`,
+  },
+  {
+    code: `
+    function reverseString(s){
+      if(s === ""){
+        return "";
+      } else { 
+        return reverseString(s.substr(1)) + s.charAt(0);
+      }
+    }
+    
+    console.log(reverseString("hello"));
+    `,
+    answer: `"olleh"`,
+  },
+  {
+    code: `
+    function power(base, exponent){
+      if(exponent === 0) {
+        return 1;
+      } else {
+        return base*power(base, exponent - 1);
+      }
+    }
+    
+    console.log(power(2,3));
+    `,
+    answer: `8`,
+  },
+  {
+    code: `
+    function gcd(a, b){
+      if(b === 0) {
+        return a;
+      } else {
+        return gcd(b, a%b);
+      }
+    }
+    
+    console.log(gcd(48,18));
+    `,
+    answer: `6`,
+  },
+  {
+    code: `
+    function isPalindrome(s){
+      if(s.length === 0 || s.length === 1) {
+        return true;
+      } else if (s[0] === s[s.length-1]) {
+        return isPalindrome(s.slice(1, s.length-1));
+      } else {
+        return false;
+      }
+    }
+    
+    console.log(isPalindrome("radar"));
+    `,
+    answer: `true`,
+  },
+  {
+    code: `
+    function binarySearch(arr, x, start = 0, end = arr.length - 1){
+      if(start > end) return false;
+    
+      let mid = Math.floor((start + end) / 2);
+    
+      if(arr[mid] === x){
+        return true;
+      }
+      else if(arr[mid] > x){
+        return binarySearch(arr, x, start, mid-1);
+      }
+      else {
+        return binarySearch(arr, x, mid+1, end);
+      }
+    }
+    
+    console.log(binarySearch([1, 2, 3, 4, 5], 3));
+    `,
+    answer: `true`,
+  }
+];

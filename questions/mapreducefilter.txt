@@ -1,0 +1,89 @@
+const flashcards = [
+  {
+    code: `
+    const numbers = [1, 2, 3, 4, 5];
+    const squares = numbers.map(x => x**2);
+    console.log(squares);
+    `,
+    answer: `1,4,9,16,25`,
+  },
+  {
+    code: `
+    const numbers = [1, 2, 3, 4, 5];
+    const sum = numbers.reduce((acc, value) => acc + value, 0);
+    console.log(sum);
+    `,
+    answer: `15`,
+  },
+  {
+    code: `
+    const numbers = [1, 2, 3, 4, 5];
+    const even = numbers.filter(x => x % 2 === 0);
+    console.log(even);
+    `,
+    answer: `2,4`,
+  },
+  {
+    code: `
+    const letters = ['a', 'b', 'c', 'd', 'e'];
+    const mapped = letters.map((letter, index) => letter + index);
+    console.log(mapped);
+    `,
+    answer: `a0,b1,c2,d3,e4`,
+  },
+  {
+    code: `
+    const words = ["apple", "banana", "grape"];
+    const lengths = words.map(word => word.length);
+    console.log(lengths);
+    `,
+    answer: `5,6,5`,
+  },
+  {
+    code: `
+    const numbers = [2, 4, 6, 8, 10];
+    const sum = numbers.reduce((acc, value) => acc + value);
+    console.log(sum);
+    `,
+    answer: `30`,
+  },
+  {
+    code: `
+    const array = [1, 2, 3, 4, 5];
+    const result = array.filter(x => x <= 3);
+    console.log(result);
+    `,
+    answer: `1,2,3`,
+  },
+  {
+    code: `
+    const items = [{id: 1}, {id: 2}, {id: 3}];
+    const ids = items.map(x => x.id);
+    console.log(ids);
+    `,
+    answer: `1,2,3`,
+  },
+  {
+    code: `
+    const people = [
+      { name: 'Alice', age: 20 },
+      { name: 'Bob', age: 21 },
+      { name: 'Charlie', age: 23 }
+    ];
+    
+    const ages = people.map(p => p.age);
+    const total = ages.reduce((a, b) => a + b, 0);
+    
+    console.log(total);
+    `,
+    answer: `64`,
+  },
+  {
+    code: `
+    const values = [1, 2, 3, 4, 5, 6];
+    const evenValues = values.filter(x => x % 2 !== 0);
+    console.log(evenValues);
+    `,
+    answer: `1,3,5`,
+  }
+];

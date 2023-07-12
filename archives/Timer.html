@@ -145,7 +145,7 @@ console.log(result);`,
 
       // Function to refresh the flashcard
       function refreshFlashcard() {
-        currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcards.length;
+        currentFlashcardIndex = Math.floor(Math.random() * flashcards.length);
         displayFlashcard(currentFlashcardIndex);
       }
 

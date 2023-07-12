@@ -1,0 +1,86 @@
+const flashcards = [
+  {
+    code: `
+    class Test {
+      constructor() {
+        this.x = 10;
+      }
+    }
+    
+    const t = new Test();
+    console.log(t.x);
+    `,
+    answer: `10`,
+  },
+  {
+    code: `
+    const dict = {'key1': 'value1', 'key2': 'value2'};
+    console.log(dict['key2']);
+    `,
+    answer: `value2`,
+  },
+  {
+    code: `
+    let someArray = [1, 2, 3, 4, 5];
+    console.log(someArray.length);
+    `,
+    answer: `5`,
+  },
+  {
+    code: `
+    let str = 'Hello, World!';
+    console.log(str.length);
+    `,
+    answer: `13`,
+  },
+  {
+    code: `
+    let x = 5;
+    console.log(x ** 2);
+    `,
+    answer: `25`,
+  },
+  {
+    code: `    
+    let y = 10;
+    y += 5;
+    console.log(y);
+    `,
+    answer: `15`,
+  },
+  {
+    code: `
+    const dict = {'key1': 'value1', 'key2': 'value2'};
+    console.log(Object.keys(dict).length);
+    `,
+    answer: `2`,
+  },
+  {
+    code: `    
+    let someString = 'Hello, JavaScript!';
+    console.log(someString.split(',').length);
+    `,
+    answer: `2`,
+  },
+  {
+    code: `
+    class Test {
+      myMethod() {
+        return 'Hello, World!';
+      }
+    }
+    
+    const t = new Test();
+    console.log(t.myMethod());
+    `,
+    answer: `Hello, World!`,
+  },
+  {
+    code: `
+    let someArray = [1, 2, 3, 4, 5];
+    someArray.push(6);
+    console.log(someArray.length);
+    `,
+    answer: `6`,
+  }
+];
