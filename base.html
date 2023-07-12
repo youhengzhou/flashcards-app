@@ -57,6 +57,7 @@
     </div>
 
     <script>
+      // Array of code snippets and their simplified explanations
       const flashcards = [
         {
           code: `let x = 5;
@@ -67,167 +68,13 @@ console.log(result);`,
         },
         {
           code: `function calculateSquare(n) {
-return n ** 2;
+  return n ** 2;
 }
 
 let x = 4;
 let result = calculateSquare(x);
 console.log(result);`,
           answer: `16`,
-        },
-        {
-          code: `let name = "John";
-console.log("Hello, " + name + "!");`,
-          answer: `Hello, John!`,
-        },
-        {
-          code: `let numbers = [1, 2, 3, 4, 5];
-let sum = 0;
-
-for (let i = 0; i < numbers.length; i++) {
-sum += numbers[i];
-}
-
-console.log(sum);`,
-          answer: `15`,
-        },
-        {
-          code: `let x = 10;
-let y = 5;
-
-if (x > y) {
-console.log("x is greater than y");
-} else {
-console.log("y is greater than x");
-}`,
-          answer: `x is greater than y`,
-        },
-        {
-          code: `let name = "Alice";
-let age = 25;
-
-console.log("My name is " + name + " and I am " + age + " years old.");`,
-          answer: `My name is Alice and I am 25 years old.`,
-        },
-        {
-          code: `let numbers = [1, 2, 3, 4, 5];
-let doubledNumbers = [];
-
-for (let i = 0; i < numbers.length; i++) {
-doubledNumbers.push(numbers[i] * 2);
-}
-
-console.log(doubledNumbers);`,
-          answer: `[2, 4, 6, 8, 10]`,
-        },
-        {
-          code: `function greet(name) {
-console.log("Hello, " + name + "!");
-}
-
-greet("Emily");`,
-          answer: `Hello, Emily!`,
-        },
-        {
-          code: `let x = 10;
-let y = 5;
-let z = x + y;
-
-console.log(z);`,
-          answer: `15`,
-        },
-        {
-          code: `let numbers = [1, 2, 3, 4, 5];
-let sum = 0;
-
-for (let number of numbers) {
-sum += number;
-}
-
-console.log(sum);`,
-          answer: `15`,
-        },
-        {
-          code: `let name = "Bob";
-let age = 30;
-
-console.log("My name is " + name + " and I am " + age + " years old.");`,
-          answer: `My name is Bob and I am 30 years old.`,
-        },
-        {
-          code: `let numbers = [1, 2, 3, 4, 5];
-let doubledNumbers = numbers.map(number => number * 2);
-
-console.log(doubledNumbers);`,
-          answer: `[2, 4, 6, 8, 10]`,
-        },
-        {
-          code: `function greet(name) {
-console.log("Hello, " + name + "!");
-}
-
-greet("John");`,
-          answer: `Hello, John!`,
-        },
-        {
-          code: `let x = 10;
-let y = 5;
-let z = x - y;
-
-console.log(z);`,
-          answer: `5`,
-        },
-        {
-          code: `let numbers = [1, 2, 3, 4, 5];
-let sum = numbers.reduce((total, number) => total + number, 0);
-
-console.log(sum);`,
-          answer: `15`,
-        },
-        {
-          code: `let name = "Charlie";
-let age = 35;
-
-console.log("My name is " + name + " and I am " + age + " years old.");`,
-          answer: `My name is Charlie and I am 35 years old.`,
-        },
-        {
-          code: `let numbers = [1, 2, 3, 4, 5];
-let doubledNumbers = [];
-
-numbers.forEach(number => {
-doubledNumbers.push(number * 2);
-});
-
-console.log(doubledNumbers);`,
-          answer: `[2, 4, 6, 8, 10]`,
-        },
-        {
-          code: `function greet(name) {
-console.log("Hello, " + name + "!");
-}
-
-greet("Sarah");`,
-          answer: `Hello, Sarah!`,
-        },
-        {
-          code: `let x = 10;
-let y = 5;
-let z = x * y;
-
-console.log(z);`,
-          answer: `50`,
-        },
-        {
-          code: `let numbers = [1, 2, 3, 4, 5];
-let sum = 0;
-
-numbers.forEach(number => {
-sum += number;
-});
-
-console.log(sum);`,
-          answer: `15`,
         },
       ];
 
