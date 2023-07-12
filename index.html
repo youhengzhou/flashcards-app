@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code Flashcards</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .flashcard {
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .code {
+        font-family: monospace;
+        white-space: pre-wrap;
+      }
+      .input-container {
+        margin-top: 10px;
+      }
+      .input-container input {
+        width: 100%;
+        padding: 5px;
+        font-size: 16px;
+      }
+      .feedback {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      .correct {
+        color: green;
+      }
+      .incorrect {
+        color: red;
+      }
+      .refresh-button {
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Code Flashcards</h1>
+
+    <div id="flashcard-container"></div>
+
+    <div class="refresh-button">
+      <button onclick="refreshFlashcard()">Refresh</button>
+    </div>
+
+    <script>
+      // Array of code snippets and their simplified explanations
+      const flashcards = [
+        {
+          code: `let x = 5;
+let y = 10;
+let result = x + y;
+console.log(result);`,
+          answer: `15`,
+        },
+        {
+          code: `function calculateSquare(n) {
+  return n ** 2;
+}
+
+let x = 4;
+let result = calculateSquare(x);
+console.log(result);`,
+          answer: `16`,
+        },
+        {
+          code: `let name = "John";
+console.log("Hello, " + name + "!");`,
+          answer: `Hello, John!`,
+        },
+        {
+          code: `let numbers = [1, 2, 3, 4, 5];
+let sum = 0;
+
+for (let i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+
+console.log(sum);`,
+          answer: `15`,
+        },
+        {
+          code: `let x = 10;
+let y = 5;
+
+if (x > y) {
+  console.log("x is greater than y");
+} else {
+  console.log("y is greater than x");
+}`,
+          answer: `x is greater than y`,
+        },
+        {
+          code: `let name = "Alice";
+let age = 25;
+
+console.log("My name is " + name + " and I am " + age + " years old.");`,
+          answer: `My name is Alice and I am 25 years old.`,
+        },
+        {
+          code: `let numbers = [1, 2, 3, 4, 5];
+let doubledNumbers = [];
+
+for (let i = 0; i < numbers.length; i++) {
+  doubledNumbers.push(numbers[i] * 2);
+}
+
+console.log(doubledNumbers);`,
+          answer: `[2, 4, 6, 8, 10]`,
+        },
+        {
+          code: `function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greet("Emily");`,
+          answer: `Hello, Emily!`,
+        },
+        {
+          code: `let x = 10;
+let y = 5;
+let z = x + y;
+
+console.log(z);`,
+          answer: `15`,
+        },
+        {
+          code: `let numbers = [1, 2, 3, 4, 5];
+let sum = 0;
+
+for (let number of numbers) {
+  sum += number;
+}
+
+console.log(sum);`,
+          answer: `15`,
+        },
+        {
+          code: `let name = "Bob";
+let age = 30;
+
+console.log("My name is " + name + " and I am " + age + " years old.");`,
+          answer: `My name is Bob and I am 30 years old.`,
+        },
+        {
+          code: `let numbers = [1, 2, 3, 4, 5];
+let doubledNumbers = numbers.map(number => number * 2);
+
+console.log(doubledNumbers);`,
+          answer: `[2, 4, 6, 8, 10]`,
+        },
+        {
+          code: `function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greet("John");`,
+          answer: `Hello, John!`,
+        },
+        {
+          code: `let x = 10;
+let y = 5;
+let z = x - y;
+
+console.log(z);`,
+          answer: `5`,
+        },
+        {
+          code: `let numbers = [1, 2, 3, 4, 5];
+let sum = numbers.reduce((total, number) => total + number, 0);
+
+console.log(sum);`,
+          answer: `15`,
+        },
+        {
+          code: `let name = "Charlie";
+let age = 35;
+
+console.log("My name is " + name + " and I am " + age + " years old.");`,
+          answer: `My name is Charlie and I am 35 years old.`,
+        },
+        {
+          code: `let numbers = [1, 2, 3, 4, 5];
+let doubledNumbers = [];
+
+numbers.forEach(number => {
+  doubledNumbers.push(number * 2);
+});
+
+console.log(doubledNumbers);`,
+          answer: `[2, 4, 6, 8, 10]`,
+        },
+        {
+          code: `function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+greet("Sarah");`,
+          answer: `Hello, Sarah!`,
+        },
+        {
+          code: `let x = 10;
+let y = 5;
+let z = x * y;
+
+console.log(z);`,
+          answer: `50`,
+        },
+        {
+          code: `let numbers = [1, 2, 3, 4, 5];
+let sum = 0;
+
+numbers.forEach(number => {
+  sum += number;
+});
+
+console.log(sum);`,
+          answer: `15`,
+        },
+      ];
+
+      let currentFlashcardIndex = 0;
+
+      // Function to display a flashcard
+      function displayFlashcard(index) {
+        const flashcardContainer = document.getElementById(
+          "flashcard-container"
+        );
+        flashcardContainer.innerHTML = "";
+
+        const flashcard = flashcards[index];
+
+        const codeElement = document.createElement("div");
+        codeElement.classList.add("flashcard");
+        codeElement.innerHTML = `<pre class="code">${flashcard.code}</pre>`;
+        flashcardContainer.appendChild(codeElement);
+
+        const inputContainer = document.createElement("div");
+        inputContainer.classList.add("input-container");
+        inputContainer.innerHTML = `<input type="text" id="user-input" placeholder="Enter your answer">`;
+        flashcardContainer.appendChild(inputContainer);
+
+        const feedbackElement = document.createElement("div");
+        feedbackElement.classList.add("feedback");
+        flashcardContainer.appendChild(feedbackElement);
+
+        const userInput = document.getElementById("user-input");
+        userInput.addEventListener("keyup", function (event) {
+          if (event.key === "Enter") {
+            checkAnswer(
+              userInput.value,
+              flashcard.explanation,
+              feedbackElement
+            );
+          }
+        });
+
+        userInput.focus();
+      }
+
+      // Function to check the user's answer
+      function checkAnswer(userAnswer, correctAnswer, feedbackElement) {
+        if (userAnswer === correctAnswer) {
+          feedbackElement.textContent = "Correct!";
+          feedbackElement.classList.remove("incorrect");
+          feedbackElement.classList.add("correct");
+        } else {
+          feedbackElement.textContent = "Incorrect!";
+          feedbackElement.classList.remove("correct");
+          feedbackElement.classList.add("incorrect");
+        }
+      }
+
+      // Function to refresh the flashcard
+      function refreshFlashcard() {
+        currentFlashcardIndex = (currentFlashcardIndex + 1) % flashcards.length;
+        displayFlashcard(currentFlashcardIndex);
+      }
+
+      // Display the first flashcard
+      displayFlashcard(currentFlashcardIndex);
+    </script>
+  </body>
+</html>
